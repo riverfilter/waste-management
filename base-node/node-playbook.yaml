@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Update apt cache and make sure we strapped
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+      loop:
+        - containerd
+        - net-tools
